@@ -11,7 +11,18 @@
       },
       "sourceType": "module"
     },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": ["node_modules", "src/"]
+        }
+      }
+    },
     "rules": {
+      "react/jsx-one-expression-per-line": 0,
+      "react/jsx-filename-extension": 0,
+      "linebreak-style": 0,
+      "comma-dangle": 0,
       "no-const-assign": "warn",
       "no-this-before-super": "warn",
       "no-undef": "warn",
@@ -34,15 +45,7 @@
     "plugins": [
       "react",
       "jsx-a11y",
-      "import"
-    ],
-    "build": {
-        "appId": "com.electron.electron-with-create-react-app",
-        "win": {
-          "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
-        },
-        "directories": {
-          "buildResources": "public"
-        }
-      }
+      "import",
+      "module-resolver"
+    ]
   }

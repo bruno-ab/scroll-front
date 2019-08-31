@@ -19,8 +19,12 @@
       }
     },
     "rules": {
+      "react/require-default-props": 0,
+      "react/forbid-prop-types": 0,
       "react/jsx-one-expression-per-line": 0,
       "react/jsx-filename-extension": 0,
+      "import/prefer-default-export": 0,
+      "no-param-reassign": 0,
       "linebreak-style": 0,
       "comma-dangle": 0,
       "no-const-assign": "warn",
@@ -41,7 +45,7 @@
       ]
     },
     "parser": "babel-eslint",
-    "extends": "airbnb",
+    "extends": ["react-app", "airbnb",  "plugin:jsx-a11y/recommended"],
     "plugins": [
       "react",
       "jsx-a11y",

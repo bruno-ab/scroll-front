@@ -1,33 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-.box{
-  opacity: 0.5;
-  z-index: -1;
-}
 
-.box:before{
-  content: '';
-  width: 100%;
-  height:100;
+
+.box {
   top: 0;
   left: 0;
-  bottom: 0;
+      opacity: 0.7;
   position: absolute;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   display: inline-block;
   background: url(../../static/img/border-pattern.png);
+  border: 2px solid transparent;
   border-radius: 16px;
   background-clip: padding-box;
   z-index: -1;
-
-  
-  -webkit-mask-image: paint(corner-shape);
-  border-radius: 0;
-  --corner-radius: 15px;
-  --corner-shape: bevel;
 }
 
-.box:after {
+.box:before {
   content: '';
   position: absolute;
   left: 0;
@@ -38,15 +27,9 @@
   position: absolute;
   top: 2px; bottom: 2px;
   left: 2px; right: 2px;
+  content: '';
   z-index: -1;
   border-radius: 13px;
-
-  
-  
-  -webkit-mask-image: paint(corner-shape);
-  border-radius: 0;
-  --corner-radius: 14px;
-  --corner-shape: bevel;
 }
 
 
@@ -62,13 +45,8 @@
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
-}
 
-.box ~ form {
-  z-index: 2;
-  position: relative;
 }
-
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -91,7 +69,6 @@
 }
 .form .register-form {
   display: none;
-  z-index: 2;
 }
 .container {
   position: relative;

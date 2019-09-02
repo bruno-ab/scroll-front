@@ -46,7 +46,7 @@
   "scripts": {
     "start": "yarn react-start",
     "electron-start": "cross-env ELECTRON_ENABLE_SECURITY_WARNINGS=false electron .",
-    "react-start": "cross-env EXTEND_ESLINT=true react-scripts start",
+    "react-start": "cross-env react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

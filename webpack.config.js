@@ -5,9 +5,8 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 module.exports = async function(env, argv) {
   const config = await createExpoWebpackConfigAsync(env, argv);
 
-
-  console.info(config.module)
-  config.module.rules.push({
+  if (config.mode === 'development') {
+    config.module.rules.push({
       // for TypeScript, change the following to "\.[jt]sx?"
       test: /\.jsx?$/,
       exclude: /node_modules/,
@@ -23,19 +22,12 @@ module.exports = async function(env, argv) {
         },
       ],
     })
+  }
 
-  // config.module = {
-  //   ...config.module,
-  // }
+  if (config.mode === 'development') {
+    config.plugins.push(new ReactRefreshWebpackPlugin());
+  }
 
-  config.plugins = [
-    ...config.plugins,
-    // ... other plugins
-    // You could also keep the plugin in your production config,
-    // It will simply do nothing.
-    // isDevelopment && new ReactRefreshWebpackPlugin(),
-    new ReactRefreshWebpackPlugin(),
-  ];
 
   // Finally return the new config for the CLI to use.
   return config;

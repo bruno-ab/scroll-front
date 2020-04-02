@@ -1,19 +1,19 @@
 {
   "extends": [
-      "@hypeguy/eslint-config"
+    "@hypeguy/eslint-config"
   ],
   "globals": {
-      "__DEV__": "readonly"
+    "__DEV__": "readonly"
   },
   "parserOptions": {
-      "ecmaFeatures": {
-          "jsx": true
-      },
-      "ecmaVersion": 2018,
-      "sourceType": "module"
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   "rules": {
-      "react/display-name": 0
-  },
-  
+    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+    "react/display-name": 0
+  }
 }

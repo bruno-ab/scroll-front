@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { App, External } from 'navigation';
-import useLinking from 'navigation/useLinking';
-import Theme from './Theme';
+import External from 'screens/External/Navigation';
+import App from 'screens/App/Navigation';
+import useLinking from 'screens/useLinking';
+import Theme from './themes/index';
 
 const RootStack = createStackNavigator();
 
@@ -44,38 +45,31 @@ export default (props) => {
     loadResourcesAndDataAsync();
   }, []);
 
-  console.info(initialNavigationState)
-
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null;
   } else {
     return (
-      <View style={styles.container}>
-        <Theme>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-            <RootStack.Navigator>
-              <RootStack.Screen
-                name="External"
-                component={External}
-                options={{ headerShown: false }}
-              />
+      <Theme>
+        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
+          <RootStack.Navigator>
+            <RootStack.Screen
+              name="External"
+              component={External}
+              options={{ headerShown: false }}
+            />
 
-              <RootStack.Screen
-                name="App"
-                component={App}
-              />
-            </RootStack.Navigator>
-          </NavigationContainer>
-        </Theme>
-      </View>
+            <RootStack.Screen
+              name="App"
+              component={App}
+              options={{
+                headerShown: false,
+                headerBackImage: null
+              }}
+            />
+          </RootStack.Navigator>
+        </NavigationContainer>
+      </Theme>
     );
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
-  }
-});
+};

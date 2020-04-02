@@ -28,20 +28,6 @@ module.exports = async function(env, argv) {
     config.plugins.push(new ReactRefreshWebpackPlugin());
   }
 
-  // config.plugins.push([
-  //   'module-resolver', {
-  //     alias: {
-  //       'assets': './src/assets',
-  //       'components': './src/components',
-  //       'constants': './src/constants',
-  //       'ui': './src/ui',
-  //       'screens': './src/screens',
-  //       'navigation': './src/navigation'
-  //     }
-  //   }
-  // ]);
-
-
   // Finally return the new config for the CLI to use.
   return config;
 };

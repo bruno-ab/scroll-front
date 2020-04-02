@@ -5,8 +5,6 @@ import { ThemeProvider } from 'styled-components';
 import defaultTheme from './default';
 // import lightTheme from './light';
 
-console.log(defaultTheme);
-
 const Theme = ({ children }) => (
   <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>
 );
